@@ -1,0 +1,722 @@
+/* layout */
+body,p,form,input{margin: 0}
+
+body {
+  background-color:#222222;
+  background-color:#000000;
+  color: #FFFFFF;
+  font-family: Arial;
+  font-size : 24px ;
+}
+
+p {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  white-space: pre-wrap;
+}
+
+/*表示系*/
+/*メインの囲み線など*/
+[class*="form-sub"]{
+  color: #FFFFFF;
+  background-color:#222222;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 1px 10px #488a9e;
+  -moz-box-shadow: 0px 1px 10px #488a9e;
+  box-shadow: 0px 1px 10px #488a9e;
+  border: solid #FFAAFF 1px;
+  /* background: #fafafa; */
+}
+/*メインのタイトルと囲み線*/
+.form-sub {
+  width: 95%;
+  padding: 30px 10px 30px 10px;
+  margin: 20px 15px 30px 15px;
+  border: 3px solid #FF99FF;
+}
+/*メッセージの囲み線*/
+.form-sub-msg {
+  width: 80%;
+  padding: 20px;
+  margin: 70px auto 20px auto;
+  border: 2px solid #FF99FF;
+}
+/*カルテ表示時のダミーの空白*/
+.sub-msg-dum {
+  margin-top: 70px;
+}
+
+/*助かるのタイトル*/
+.form-tasukaru {
+  text-align: center;
+  font-weight: bold;
+  font-size: 100px;
+  color: #FF1A6F;
+  text-shadow: 0px 8px 6px #FFAAFF;
+  color: #FFFFFF;
+}
+/*バージョン表示*/
+.form-ver {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: right;
+  margin-right: 30px;
+}
+
+/*カルテのヘッダーフォーマット*/
+.head-main {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  color: #FFFFFF;
+  align-items: flex-end;
+}
+/*左 日付*/
+.head-left {
+  font-size : 24px;
+  margin-left: 3%;
+}
+/*真ん中 タイトル*/
+.head-center {
+  font-size : 45px ;
+  font-weight: bold;
+}
+/*右 顧客番号*/
+.head-right {
+  text-align: right;
+  font-size : 32px ;
+}
+
+/*タイトル（下線あり)*/
+.form-title-line {
+  text-align: center;
+  font-family: Arial;
+  font-size: 42px;
+  color: #4eb4c2;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #FFAAFF;
+  margin-bottom: 10px;
+  color: #FFAAFF;
+}
+/*タイトル（下線なし）*/
+.form-title {
+  font-size: 42px;
+  text-align: center;
+}
+
+/*お客様の名前。1つのセル内で２つの文字列を両端表示*/
+.form-name {
+  display: flex;
+  margin-left: 5px;
+  justify-content: space-between;
+  align-items: center;
+}
+/*連絡先*/
+.form-tel {
+  text-align: center;
+  width: 200px;
+  font-size: 24px;
+}
+/*同意書*/
+.form-doui {
+  text-align: center;
+  width: 50px;
+  font-size: 32px;
+}
+/*暗号*/
+.form-sec {
+  text-align: center;
+  width: 50px;
+  height: 150px;
+}
+/*性格・特徴*/
+.form-chara {
+  height:200px;
+  align: left;
+  text-align: left;
+  vertical-align: top;
+}
+/*備考、内容*/
+.form-comment {
+  vertical-align: top;
+  text-align: left;
+  align: left;
+}
+
+
+/*エラー画面のメッセージ設定*/
+.form-errormsg {
+  font-size: 42px;
+  text-align: center;
+  color: #FFAAFF;
+  margin-top: 300px;
+  margin-bottom: 100px;
+}
+
+/*画面上部のメッセージ設定*/
+.form-msg {
+  font-size: 26px;
+  text-align: center;
+  color: #FF00FF;
+}
+
+
+/*個別フォント設定*/
+.font-12 {
+  font-size : 12px ;
+}
+.font-16 {
+  font-size : 16px ;
+}
+.font-32 {
+  font-size : 32px ;
+}
+
+/*個別設定（左寄せ）*/
+.form-text-left {
+  text-align: left;
+}
+/*個別設定（中央寄せ）*/
+.form-text-center {
+  text-align: center;
+}
+
+/*オブジェクトを右側に配置*/
+.align-r {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*登録(修正)、キャンセルボタンの表示*/
+.form-button {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 1%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+
+/*入力画面系*/
+
+/*トップ画面の検索ボックスとボタン*/
+.form-input-top {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+/*入力フォーム 左が項目名、右が入力欄 */
+.form-input {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 0px;
+  align-items: center;
+}
+/*左側の項目名*/
+[class*="input-title"] {
+  width: 25%;
+  font-size : 24px ;
+  text-align: right;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+/*備考・性格(textarea)の項目名*/
+.input-title-2 {
+  margin-bottom: 0px;
+}
+
+/*ペットの誕生月の修正時の整形*/
+.form-input-birth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*入力ボックスの設定                    */
+/*テキストボックス*/
+input[type="text"] {
+  font-size : 24px ;
+  text-align: left;
+  padding: 1px;
+  margin: 0px;
+}
+
+/*登録・追加時の入力ボックスの共通設定*/
+[class*="input-text"] input[type="text"] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/*トップ画面の入力ボックス*/
+.input-text-top input[type="text"] {
+  width: 400px;
+  font-size: 60px;
+  border: 2px boble #555;
+  padding-top: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  -moz-box-align: center;
+  text-align: center;
+  margin-right: 30px;
+}
+/*追加時の入力ボックスの設定 幅 */
+/*顧客番号、金額・担当*/
+.input-text-custid input[type="text"] {
+  width: 100px;
+}
+/*名前・ふりがな*/
+.input-text-name input[type="text"] {
+  width: 350px;
+}
+/*連絡先*/
+.input-text-tel input[type="text"] {
+  width: 200px;
+}
+/*連絡先の補足*/
+.input-text-tel-sub input[type="text"] {
+  width: 60px;
+  margin-left: 50px;
+}
+/*利用履歴の時間*/
+.input-text-cut-time input[type="text"] {
+  width: 215px;
+}
+/*ペットの名前・種類*/
+.input-text-pet input[type="text"] {
+  width: 250px;
+}
+.input-text-gazo input[type="text"] {
+  width: 600px;
+  font-size : 18px ;
+}
+
+
+/*修正時の入力ボックスの共通設定（表の中）*/
+[class*="input-mod-text"] input[type="text"] {
+  width: 100%;
+  height: 100%;
+}
+/*利用履歴修正の金額・担当*/
+.input-mod-text-com1 input[type="text"] {
+  font-size: 25px;
+  height: 44px;
+}
+/*利用履歴修正の時間*/
+.input-mod-text-com2 input[type="text"] {
+  height: 44px;
+  font-size: 20px;
+}
+
+
+/*テキストエリア 共通設定*/
+textarea {
+  font-size: 20px;
+  -moz-box-align: center;
+  text-align: left;
+  margin: 0px;
+  padding: 1px;
+  font-family: Arial;
+  white-space: pre-wrap;
+  resize: none;
+}
+/*お客様の備考とペットの性格・特徴(登録)*/
+.input-textarea-comment textarea {
+  width: 970px;
+  height: 220px;
+  text-align: left;
+  margin: 0px;
+}
+/*お客様の住所(登録) */
+.input-textarea-address textarea {
+  width: 510px;
+  height: 65px;
+}
+/*利用履歴登録の内容(登録)*/
+/*高さ5行、幅30文字以内にする*/
+.input-textarea-content textarea {
+  width: 623px;
+  height: 155px;
+  text-align: left;
+  margin: 0px;
+}
+/*ペットの性格・特徴(修正)*/
+.mod-textarea-chara textarea {
+  width: 100%;
+  height: 220px;
+}
+/*利用履歴の内容(修正)*/
+.mod-textarea-content textarea {
+  width: 100%;
+  height: 140px;
+  font-size: 17px;
+  padding-top: 4px;
+}
+
+
+/*日付入力の共通設定*/
+input[type="date"] {
+  width: 180px;
+  font-size: 28px;
+  border: 2px boble #555;
+}
+/*利用履歴のご利用日(修正)*/
+.input-date-come input[type="date"] {
+  width: 147px;
+  font-size : 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 1px;
+}
+
+/*チェックボックス*/
+.input-ckbox input[type="checkbox"] {
+  width: 40px;
+  font-size: 32px;
+  margin-bottom: 5px;
+  -moz-transform: scale(2.0);
+  -webkit-transform: scale(2.0);
+  transform: scale(2.0);
+}
+
+/*ラジオボタン*/
+/*性別*/
+.input-sex input[type="radio"] {
+  width: 60px;
+  font-size: 32px;
+  margin-left: 20px;
+  -moz-transform:		scale(1.5);
+  -webkit-transform:	scale(1.5);
+  transform:		scale(1.5);
+}
+
+
+/*リストボックス(select)*/
+[class*="select-box"] {
+  font-size: 24px;
+  border: 1px;
+  margin: 0px;
+}
+/*登録日等の基本的なもの*/
+select.select-box {
+  width: 100px;
+}
+/*ペットの誕生月の月*/
+select.select-box-month {
+  width: 80px;
+}
+/*利用履歴のコース(修正)*/
+select.select-box-course {
+  width: 70px;
+  font-size: 23px;
+}
+
+
+
+/* 表 */
+/*ベースとなる外枠テーブル*/
+table.table-tasukasu {
+  table-layout: fixed;
+  border:2px;
+  width: 95%;
+  align:center;
+  margin-top: 1px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  border-collapse: collapse;
+  color: #FFFFFF;
+  padding: 0px;
+  spacing: 0px;
+  text-align: center;
+}
+
+/*行設定*/
+.table-tasukasu th, .table-tasukasu td {
+  overflow-wrap : break-word;
+  border: 2px solid #808080;
+  padding: 0px;
+}
+/*見出しは目立たなくする*/
+table.table-tasukasu th {
+  font-weight: normal;
+  color: #888888;
+  height:40px;
+}
+/*利用履歴の個別設定*/
+table.table-come td {
+  height:150px;
+}
+
+
+/*ベースとなる内側テーブル*/
+table.tbl-in-tasukasu {
+  width: 100%;
+  font-size: 18px;
+  border: 0px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+/*連絡先は固定にしない*/
+table.tbl-in-tel {
+  table-layout: auto;
+}
+/*表の高さ固定*/
+table.tbl-in-comment {
+  height: 200px;
+}
+
+/*行設定*/
+table.tbl-in-tasukasu th, table.tbl-in-tasukasu td {
+  padding: 0px 0px 0px 2px;
+  spacing: 0px;
+  overflow-wrap : break-word;
+}
+
+table.tbl-in-comment th, table.tbl-in-comment td {
+  height: 66px; /*66*/
+}
+
+
+/*表の幅 個別設定*/
+/*連絡先の補足*/
+.wid-tel-sub {
+  width: 28px;
+}
+/*備考・性別*/
+.wid-50 {
+  width: 50px;
+}
+/*金額（修正）・担当(表示)*/
+.wid-65 {
+  width: 65px;
+}
+/*コース(表示)*/
+.wid-77 {
+  width: 77px;
+}
+/*表のタイトルいろいろ*/
+.wid-80 {
+  width: 80px;
+}
+/*コース（修正）*/
+.wid-85 {
+  width: 85px;
+}
+/*金額（表示）・性別（修正）*/
+.wid-100 {
+  width: 100px;
+}
+/*ご利用日(表示)*/
+.wid-110 {
+  width: 110px;
+}
+.wid-118 {
+/*ご利用日*/
+  width: 118px;
+}
+/*ペット名前（タイトル）*/
+.wid-150 {
+  width: 150px;
+}
+/*ご利用日(修正のタイトル)*/
+.wid-160 {
+  width: 160px;
+}
+/*内容(修正)*/
+.wid-255 {
+  width: 255px;
+}
+/*名前*/
+.wid-name {
+  width: 280px;
+}
+
+
+/*表の高さ 個別設定*/
+/*写真（タイトル）*/
+.hei-40 {
+  height: 40px;
+}
+/*写真（ボタン）*/
+.hei-80 {
+  height: 80px;
+}
+
+
+
+/*ボタン*/
+/*ボタン共通*/
+[class*="submit"] a, [class*="submit"] input {
+  font-family: Arial;
+  color: #FF0461;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px 30px 10px 30px;
+  text-decoration: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 8px 6px #e3e3e3;
+  -moz-box-shadow: 0px 8px 6px #e3e3e3;
+  box-shadow: 0px 8px 6px #e3e3e3;
+  border: solid #f5fdff 4px;
+  background: #FFDDFF;
+  }
+/*基本的なボタン*/
+.submit-base a {
+  padding-top: 15px;
+  padding-bottom: 17px;
+}
+/*画像のボタン*/
+.submit-gazo a {
+  width: 95px;
+  font-size: 28px;
+  margin: 10px auto 10px auto;
+  padding: 20px 10px 20px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 5px 5px #e3e3e3;
+  -moz-box-shadow: 0px 5px 5px #e3e3e3;
+  box-shadow: 0px 5px 5px #e3e3e3;
+  border: solid #f5fdff 3px;
+  background: #FFDDFF;
+}
+/*登録・修正ボタン*/
+.submit-act input {
+  margin-left: 30px;
+  margin-right: 5%;
+}
+
+/*（アイコンを合わせた時）*/
+.submit-base a:hover, .submit-base input:hover, .submit-gazo a:hover, .submit-act input:hover {
+  background: #FFAAFF;
+ }
+
+/*閉じるボタン*/
+.submit-close input {
+  margin-left: 50px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#808080), to(#C0C0C0)); /* Firefox */
+  background: -moz-linear-gradient(top, #808080, #C0C0C0); /* safari Chrome */
+  background:-ms-linear-gradient(top, #808080, #C0C0C0); /* IE */
+}
+/*閉じるボタン（アイコンを合わせた時）*/
+.submit-close input:hover {
+  background: #AAAAAA;
+}
+
+
+
+/*カルテのメニューリスト*/
+#user-menu {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*メニューリスト     */
+#dropmenu {
+  list-style-type: none;
+  width: 100%;
+  margin-top: 0;
+  padding: 0;
+}
+
+#dropmenu li {
+  position: relative;
+  width: 25%;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #FF3366;
+  font-size: 28px;
+  background: -webkit-gradient(linear, 0 0, 0 100%, from(#FF1A6F), to(#FF69A3)); /* Firefox */
+  background: -moz-linear-gradient(top, #FF1A6F, #FF69A3); /* safari Chrome */
+  background:-ms-linear-gradient(top, #FF1A6F, #FF69A3); /* IE */
+}
+
+	#dropmenu li a {
+	  display: block;
+	  margin: 0;
+	  padding: 16px 0;
+	  background: #fff;
+    /*background-color: #FF1A6F;*/
+    background-color: #FFDDFF;
+	  color: #FF0461;
+     /*text-shadow: 1px 1px 0 #000,
+             -1px 1px 0 #000,
+             1px -1px 0 #000,
+             -1px -1px 0 #000; */
+	  font-size: 32px;
+	  font-weight: bold;
+	  line-height: 1;
+	  text-decoration: none;
+    border: 1px solid;
+    border-color :#FF1A6F;
+	}
+	#dropmenu li ul {
+	  list-style: none;
+	  position: absolute;
+	  z-index: 100;
+	  top: 100%;
+	  left: 0;
+	  width: 100%;
+	  margin: 0;
+	  padding: 0;
+	}
+   #dropmenu li ul li {
+   	  overflow: hidden;
+   	  width: 100%;
+   	  height: 0;
+   	  color: #fff;
+   	  transition: .2s;
+   	}
+   #dropmenu li ul li a {
+   	  padding: 13px 15px;
+   	  /*background-color: #FF5192;*/
+      background-color: #FFDDFF;
+   	  text-align: center;
+   	  font-size: 32px;
+   	  font-weight: normal;
+      border: 1px solid;
+      border-color :#FF1A6F;
+   	}
+	#dropmenu > li:hover > a {  background-color: #FFAAFF }
+	#dropmenu > li:hover li:hover > a {  background-color: #FF77FF }
+	#dropmenu li:hover > ul > li {
+	  overflow: visible;
+	  height: 46px;
+	}
+
+	#dropmenu li ul li ul {
+	  top: 0;
+	  left: 100%;
+	}
+
+	#dropmenu li:last-child ul li ul {
+	  left: -100%;
+	  width: 100%;
+	}
