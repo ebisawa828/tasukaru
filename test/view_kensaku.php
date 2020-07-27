@@ -19,7 +19,7 @@
   <!-- 検索フォームの囲み線 -->
   <div class="form-sub">
     <!-- 電話番号検索 -->
-    <div class="form-title">test　　　　　　　　　</div>
+    <div class="form-title">test　　　　　　　　</div>
     <form action="./view/view_karte.php" method="POST" target="_blank">
       <div class="form-input-top">
         <div class="input-text-top"><input type="text" name="tel" autocomplete="off" style='ime-mode:disabled' required pattern='\d{10,11}' title='数字のみを入力'></div>
@@ -28,7 +28,7 @@
     </form>
     <br><br>
     <!-- 顧客番号検索 -->
-    <div class="form-title">顧客番号　　　　　　　　　</div>
+    <div class="form-title">test2　　　　　　　　　</div>
     <form action="./view/view_karte.php" method="POST" target="_blank">
       <div class="form-input-top">
         <div class="input-text-top"><input type="text" name="cust_id" autocomplete="off" style='ime-mode:disabled' required pattern='\d{5}' title='5けたの数字のみを入力'></div>
