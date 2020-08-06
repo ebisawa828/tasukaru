@@ -19,7 +19,7 @@
   <!-- 検索フォームの囲み線 -->
   <div class="form-sub">
     <!-- 電話番号検索 -->
-    <div class="form-title">test１　　　　　　　　</div>
+    <div class="form-title">test3　　　　　　　　</div>
     <form action="./view/view_karte.php" method="POST" target="_blank">
       <div class="form-input-top">
         <div class="input-text-top"><input type="text" name="tel" autocomplete="off" style='ime-mode:disabled' required pattern='\d{10,11}' title='数字のみを入力'></div>
