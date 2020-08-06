@@ -15,7 +15,7 @@
       <table class="tbl-in-tasukasu">
         <tr>
           <th class="wid-80 font-16">ふりがな</th>
-          <td class="wid-name font-16"> <div class="form-name"><?php echo $user_list[0]['name_f']; ?> <div>さま　</div></div></td>
+          <td class="wid-name font-16"> <div class="form-name"><?php echo $user_list[0]['name_f']; ?> 　<div>さま　</div></div></td>
           <th rowspan="3" class="wid-80">ご住所</th>
           <td rowspan="3" class="form-text-left"> <?php echo $user_list[0]['address']; ?> </th>
           <th rowspan="2" class="wid-80">同意書</th>
