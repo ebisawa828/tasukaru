@@ -135,7 +135,7 @@ p {
 }
 /*性格・特徴*/
 .form-chara {
-  height:200px;
+  height:190px;
   align: left;
   text-align: left;
   vertical-align: top;
@@ -462,7 +462,10 @@ table.table-tasukasu th {
 table.table-come td {
   height:150px;
 }
-
+/*ペットの個別設定*/
+table.table-pet {
+  margin-bottom: 20px;
+}
 
 /*ベースとなる内側テーブル*/
 table.tbl-in-tasukasu {

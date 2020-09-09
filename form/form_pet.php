@@ -1,6 +1,6 @@
 <!-- 最大４匹まで表示 -->
 <?php foreach ($list->pet_list as $key=>$val) { ?>
-  <table class="table-tasukasu">
+  <table class="table-tasukasu table-pet">
     <tr>
       <th class="wid-150">ペットお名前</th>
       <td > <?php echo $list->pet_list[$key]['pet_name'];?> </td>
@@ -19,5 +19,4 @@
       <td class="hei-80"><?php echo $list->dis[$key]; ?></td>
     </tr>
   </table>
-  <br>
 <?php } ?>
