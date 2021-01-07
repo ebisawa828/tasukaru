@@ -21,18 +21,21 @@
         <ul>
           <li><a href="view_create_cust.php">登録</a></li>
           <li><a href="view_mod_cust.php?id=<?php echo $user_list[0]['cust_id']; ?>">修正</a></li>
+          <li><a href="view_del_cust.php?id=<?php echo $user_list[0]['cust_id']; ?>">削除</a></li>
         </ul>
       </li>
       <li><a>ペット</a>
         <ul>
           <li><a href="view_add_pet.php?id=<?php echo $user_list[0]['cust_id']; ?>">追加</a></li>
           <li><a href="view_mod_pet.php?id=<?php echo $user_list[0]['cust_id']; ?>">修正</a></li>
+          <li><a href="view_del_pet.php?id=<?php echo $user_list[0]['cust_id']; ?>">削除</a></li>
         </ul>
       </li>
       <li><a>利用履歴</a>
         <ul>
           <li><a href="view_add_come.php?id=<?php echo $user_list[0]['cust_id']; ?>">追加</a></li>
           <li><a href="view_mod_come.php?id=<?php echo $user_list[0]['cust_id']; ?>">修正</a></li>
+          <li><a href="view_del_come.php?id=<?php echo $user_list[0]['cust_id']; ?>">削除</a></li>
         </ul>
       </li>
       <li><a href="view_print.php?id=<?php echo $user_list[0]['cust_id']; ?>&print=1" target="_blank">印刷</a></li>

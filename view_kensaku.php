@@ -13,6 +13,7 @@
   <image src="./image/logo.png" width="20%">
   <!-- 助かる表示 -->
   <div class="form-tasukaru">助かる✋</div>
+  <div class="form-tasukaru font-50">＜検証環境＞</div>
   <!-- バージョンファイル表示 -->
   <div class="form-ver"><?php include("./lst/version.list"); ?></div>
 

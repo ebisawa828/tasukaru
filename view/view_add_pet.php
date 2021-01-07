@@ -92,7 +92,7 @@
       <div class="form-input">
         <div class="input-title-2">性格・特徴</div>
       </div>
-      <div class="input-textarea-comment align-r"> <textarea name="chara" wrap="soft"><?php echo $_SESSION['post_data']['chara']; ?></textarea></div>
+      <p class="input-textarea-comment"> <textarea name="chara" wrap="soft"><?php echo $_SESSION['post_data']['chara']; ?></textarea></p>
     </div>
 
     <!-- 登録・キャンセルボタン -->

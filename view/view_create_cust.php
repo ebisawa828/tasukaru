@@ -92,7 +92,7 @@
       <div class="form-input">
         <div class="input-title-2">備考</div>
       </div>
-      <p class="input-textarea-comment align-r"> <textarea name="comment" wrap="soft"><?php echo $_SESSION['post_data']['comment']; ?></textarea></p>
+      <p class="input-textarea-comment "> <textarea name="comment" wrap="soft"><?php echo $_SESSION['post_data']['comment']; ?></textarea></p>
       <!-- 暗号３つ -->
       <div class="form-input">
         <div class="input-title">暗号①</div>
@@ -205,7 +205,7 @@
           <div class="form-input">
             <div class="input-title-2">性格・特徴</div>
           </div>
-          <div class="input-textarea-comment align-r"> <textarea name="chara[]" wrap="soft"><?php echo $_SESSION['post_data']['chara'][$i]; ?></textarea></div>
+          <p class="input-textarea-comment"> <textarea name="chara[]" wrap="soft"><?php echo $_SESSION['post_data']['chara'][$i]; ?></textarea></p>
 
         </div>
       <?php } ?>

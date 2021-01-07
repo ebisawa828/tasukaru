@@ -3,7 +3,6 @@ body,p,form,input{margin: 0}
 
 body {
   background-color:#222222;
-  background-color:#000000;
   color: #FFFFFF;
   font-family: Arial;
   font-size : 24px ;
@@ -17,6 +16,10 @@ p {
   white-space: pre-wrap;
 }
 
+.manege-bgcolor {
+  background-color: #800000;
+  background: linear-gradient(45deg, #10100E, #A72F37);
+}
 /*表示系*/
 /*メインの囲み線など*/
 [class*="form-sub"]{
@@ -75,6 +78,14 @@ p {
   color: #FFFFFF;
   align-items: flex-end;
 }
+/*カレンダーのヘッダーフォーマット*/
+.head-cal {
+  display: flex;
+  justify-content: center;
+  width: 95%;
+  color: #FFFFFF;
+  align-items: flex-end;
+}
 /*左 日付*/
 .head-left {
   font-size : 24px;
@@ -127,6 +138,7 @@ p {
   width: 50px;
   font-size: 32px;
 }
+
 /*暗号*/
 .form-sec {
   text-align: center;
@@ -172,8 +184,14 @@ p {
 .font-16 {
   font-size : 16px ;
 }
+.font-24 {
+  font-size : 24px ;
+}
 .font-32 {
   font-size : 32px ;
+}
+.font-50 {
+  font-size : 50px ;
 }
 
 /*個別設定（左寄せ）*/
@@ -202,7 +220,16 @@ p {
   align-items: center;
 }
 
-
+/*削除画面の削除、キャンセルボタンの表示*/
+.form-del-button {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  margin-right: 50px;
+  justify-content: center;
+  align-items: center;
+}
 
 /*入力画面系*/
 
@@ -466,6 +493,19 @@ table.table-come td {
 table.table-pet {
   margin-bottom: 20px;
 }
+/*お客様一覧*/
+table.table-cust-list th, table.table-cust-list td {
+  font-size: 24px;
+  color: #000000;
+}
+
+table.table-cust-list td {
+  background-color:#FFEEFF;
+}
+table.table-cust-list th {
+  background-color:#999999;
+  color:#FFEEFF;
+}
 
 /*ベースとなる内側テーブル*/
 table.tbl-in-tasukasu {
@@ -561,11 +601,50 @@ table.tbl-in-comment th, table.tbl-in-comment td {
   height: 80px;
 }
 
+/*ラジオボタン カスタマイズ*/
+.radio01-input {
+  display: none;
+}
+.radio01-input + label {
+   padding-left: 20px;
+   position:relative;
+   margin-right: 1px;
+}
+.radio01-input + label::before {
+  margin-top: 3px;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #999;
+  border-radius: 50%;
+}
+.radio01-input:checked + label {
+  color: #FF0461;
+}
+.radio01-input:checked + label::after {
+  margin-top: 3px;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  background: #FF0461;
+  border-radius: 50%;
+}
+
+
+
 
 
 /*ボタン*/
 /*ボタン共通*/
-[class*="submit"] a, [class*="submit"] input {
+[class*="submit"] a, [class*="submit"] input, [class*="submit"] button {
   font-family: Arial;
   color: #FF0461;
   font-size: 32px;
@@ -606,6 +685,13 @@ table.tbl-in-comment th, table.tbl-in-comment td {
 .submit-act input {
   margin-left: 30px;
   margin-right: 5%;
+}
+
+/*カレンダーのボタン*/
+.submit-cal a {
+  font-size: 20px;
+  margin: 10px 10px 20px 30px;
+  padding: 5px;
 }
 
 /*（アイコンを合わせた時）*/

@@ -15,6 +15,21 @@ abstract class BaseClass
     $this->date = $date->format('Ym');
     $this->date2 = $date->format('m');
     session_start();
+
+    //Enterキーを無効化する(2020/11/30追加) ?>
+    <script language="javascript" type="text/javascript">
+      document.onkeypress = enter;
+      function enter(){
+        if( window.event.keyCode == 13 ){
+          if (event.srcElement.type != 'submit' && event.srcElement.type != 'textarea') {
+              // submitボタン、テキストエリア以外の場合はイベントをキャンセル
+              return false;
+          }
+        }
+      }
+    </script>
+<?php
+
   }
 
   //DB接続
@@ -212,6 +227,91 @@ abstract class BaseClass
     }
   }
 
+  //お客様情報削除(2020/11/30追加)
+  public function Del_Cust($cust_id)
+  {
+    try{
+       $params = array('cust_id' => $cust_id );
+       $sql = sprintf('DELETE FROM %s where cust_id = :cust_id', self::User_table);
+       $Result = $this->exec_query($sql, $params);
+       return $Result;
+    } catch (PDOException $e) {
+       $db_msg = $e->getMessage();
+       return "ERROR1:$db_msg";
+    }
+  }
+
+  //お客様登録件数取得(2020/12/14追加)
+  public function Get_Cust_Count()
+  {
+    try{
+       $params = array();
+       $sql = sprintf('SELECT count(*) as count FROM %s', self::User_table);
+       $user_count_tmp = $this->get_query($sql, $params);
+       return $user_count_tmp[0]['count'];
+    } catch (PDOException $e) {
+       $db_msg = $e->getMessage();
+       return "ERROR1:$db_msg";
+    }
+  }
+
+  //お客様一覧取得
+  public function Get_Cust_come_all_list()
+  {
+    $come_list = array();
+    $params = array();
+    try{
+      $sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num, max(str_date) as last_date FROM %s
+        inner join %s on %s.cust_id = %s.cust_id group by cust_id order by cust_id;'
+        ,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table);
+      $come_list = $this->get_query($sql, $params);
+      return $come_list;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
+    }
+  }
+
+  //特定日のお客様取得
+  public function Get_Cust_dayly_list($t_day)
+  {
+    $user_list = array();
+    $params = array('t_day' => $t_day);
+    try{
+        $sql = sprintf('SELECT distinct cust_id FROM %s where str_date = :t_day order by cust_id;' ,self::Come_table);
+      $user_list = $this->get_query($sql, $params);
+      return $user_list;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
+    }
+  }
+
+  //利用履歴一覧取得(日付指定)
+  public function Get_Cust_come_dayly_list($cust_id)
+  {
+    $user_list = array();
+    $params = array('cust_id' => $cust_id);
+    try{
+        //$sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num, max(str_date) as last_date FROM %s
+        //  inner join %s on %s.cust_id = %s.cust_id where %s.cust_id
+        //  in ( select cust_id from %s where str_date = :t_day ) group by cust_id order by cust_id;'
+        //  ,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table, self::Come_table, self::Come_table);
+
+        $sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num, max(str_date) as last_date FROM %s
+          inner join %s on %s.cust_id = %s.cust_id where %s.cust_id = :cust_id group by cust_id ;'
+          ,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table, self::Come_table);
+
+      $user_list = $this->get_query($sql, $params);
+      return $user_list;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
+    }
+  }
+
+
+  //ペット  --------------------------------------------------------------------------------------------------------------
   //ペット情報取得
   public function Get_Pet_list($id)
   {
@@ -331,6 +431,52 @@ abstract class BaseClass
     }
   }
 
+  //ペット情報削除(2020/11/30追加)
+  public function Del_Pet($pet_id)
+  {
+    try{
+       $params = array('pet_id' => $pet_id );
+       $sql = sprintf('DELETE FROM %s where pet_id = :pet_id', self::Pet_table);
+       $Result = $this->exec_query($sql, $params);
+       return $Result;
+    } catch (PDOException $e) {
+       $db_msg = $e->getMessage();
+       return "ERROR1:$db_msg";
+    }
+  }
+
+  //ペットの名前取得(2020/11/30追加)
+  public function Get_Pet_name($pet_id)
+  {
+    $pet_list = array();
+    $params = array('id' => $pet_id);
+    try{
+      $sql = sprintf('SELECT * FROM %s where pet_id = :id and del_flg is NULL',self::Pet_table);
+      //LIMIT対応（数値用クエリ）
+      $pet_list = $this->get_query($sql, $params);
+      return $pet_list;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
+    }
+  }
+
+  //ペット登録件数取得(2020/12/14追加)
+  public function Get_Pet_Count()
+  {
+    try{
+       $params = array();
+       $sql = sprintf('SELECT count(*) as count FROM %s', self::Pet_table);
+       $pet_count_tmp = $this->get_query($sql, $params);
+       return $pet_count_tmp[0]['count'];
+    } catch (PDOException $e) {
+       $db_msg = $e->getMessage();
+       return "ERROR1:$db_msg";
+    }
+  }
+
+
+  //利用履歴  --------------------------------------------------------------------------------------------------------------
   //利用履歴の取得
   public function Get_Come_list($id)
   {
@@ -394,6 +540,54 @@ abstract class BaseClass
         }
       }
     }
+  }
+
+  //ご利用履歴削除(2020/11/30追加)
+  public function Del_Come($come_id)
+  {
+    try{
+      $params = array('come_id' => $come_id );
+      $sql = sprintf('DELETE FROM %s where come_id = :come_id', self::Come_table);
+      $Result = $this->exec_query($sql, $params);
+      return $Result;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
+    }
+  }
+
+  //ご利用履歴登録件数取得(2020/12/14追加)
+  public function Get_Come_Count()
+  {
+    try{
+       $params = array();
+       $sql = sprintf('SELECT count(*) as count FROM %s', self::Come_table);
+       $come_count_tmp = $this->get_query($sql, $params);
+       return $come_count_tmp[0]['count'];
+    } catch (PDOException $e) {
+       $db_msg = $e->getMessage();
+       return "ERROR1:$db_msg";
+    }
+  }
+
+  //お客様別利用履歴取得
+  public function Get_dayly_come_list()
+  {
+    $user_list = array();
+    $params = array();
+    try{
+      $sql = sprintf('SELECT DATE_FORMAT(str_date, %s) as str_date, count(*) as num FROM %s group by str_date order by str_date DESC', "'%Y-%c-%e'",self::Come_table);
+      $user_list = $this->get_query($sql, $params);
+      return $user_list;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
+    }
+  }
+
+  //カレンダーの色を設定
+  public function color_get($i) {
+    if ($i == 0) return '#ff0000'; elseif ($i == 6) return '#0000ff'; else return '#000000';
   }
 
 }
