@@ -431,6 +431,20 @@ abstract class BaseClass
     }
   }
 
+  //お客様削除時のペット情報削除(2020/11/30追加)
+  public function Del_Pet_Cust($cust_id)
+  {
+    try{
+       $params = array('cust_id' => $cust_id );
+       $sql = sprintf('DELETE FROM %s where cust_id = :cust_id', self::Pet_table);
+       $Result = $this->exec_query($sql, $params);
+       return $Result;
+    } catch (PDOException $e) {
+       $db_msg = $e->getMessage();
+       return "ERROR1:$db_msg";
+    }
+  }
+
   //ペット情報削除(2020/11/30追加)
   public function Del_Pet($pet_id)
   {
@@ -539,6 +553,20 @@ abstract class BaseClass
           }
         }
       }
+    }
+  }
+
+  //お客様削除時のご利用履歴削除(2020/11/30追加)
+  public function Del_Come_Cust($cust_id)
+  {
+    try{
+      $params = array('cust_id' => $cust_id );
+      $sql = sprintf('DELETE FROM %s where cust_id = :cust_id', self::Come_table);
+      $Result = $this->exec_query($sql, $params);
+      return $Result;
+    } catch (PDOException $e) {
+      $db_msg = $e->getMessage();
+      return "ERROR1:$db_msg";
     }
   }
 

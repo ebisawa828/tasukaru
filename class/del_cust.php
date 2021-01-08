@@ -34,7 +34,14 @@
         //お客様リスト取得
         $this->user_list = $this->Get_User_list($cust_id);
         $name=$this->user_list[0]['name'];
-        //ユーザ情報削除
+
+        //対象のお客様の利用履歴削除
+        $Result = $this->Del_Come_Cust($cust_id);
+
+        //対象のお客様のペット削除
+        $Result = $this->Del_Pet_Cust($cust_id);
+
+        //お客様情報削除
         $Result = $this->Del_Cust($cust_id);
 
         $msg = $this->Out_Msg(6,$name);
