@@ -604,7 +604,7 @@ abstract class BaseClass
     $user_list = array();
     $params = array();
     try{
-      $sql = sprintf('SELECT DATE_FORMAT(str_date, %s) as str_date, count(*) as num FROM %s group by str_date order by str_date DESC', "'%Y-%c-%e'",self::Come_table);
+      $sql = sprintf('SELECT DATE_FORMAT(str_date, %s) as str_date, count(*) as num FROM %s group by str_date order by str_date DESC', "'%Y-%m-%d'",self::Come_table);
       $user_list = $this->get_query($sql, $params);
       return $user_list;
     } catch (PDOException $e) {

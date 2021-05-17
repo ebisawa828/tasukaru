@@ -5,15 +5,15 @@
   {
     public function main()
     {
-
+      $this->n_flg = "0";
       $m = $_GET['m'];
       $this->year = date('Y');
-      $this->month = date('n');
+      $this->month = date('m');
       $now_ym = $this->year . $this->month;
       //現在の年月以外の場合
       if ($m != "" && $m != $now_ym ) {
           $this->year = date('Y', strtotime($m . '01'));
-          $this->month = date('n', strtotime($m . '01'));
+          $this->month = date('m', strtotime($m . '01'));
           if ($m > $now_ym) {
             $this->n_flg = "2";
           } else {

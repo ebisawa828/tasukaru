@@ -55,8 +55,14 @@
             <?php $i = 0;
           }
           $c = $list->color_get($i);
+          //  1を01へ
+          if ($days < 10)  {
+            $day_tmp = "0" . $days;
+          } else {
+            $day_tmp =$days;
+          }
 
-          $tar_day = $list->year . "-" . $list->month . "-" . $days;
+          $tar_day = $list->year . "-" . $list->month . "-" . $day_tmp;
 
           if(  $list->n_flg != "1" ){
             if(  $days > $list->day || $list->n_flg == "2"){
