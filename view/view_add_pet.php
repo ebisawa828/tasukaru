@@ -65,8 +65,8 @@
           <?php } else { ?>
             <option value="">-</option>
           <?php } ?>
-          <!-- 現在から15年前までをリスト表示 -->
-          <?php for($s=date('Y');$s>date('Y')-15;$s--) { ?>
+          <!-- 現在から25年前までをリスト表示 -->
+          <?php for($s=date('Y');$s>date('Y')-25;$s--) { ?>
             <option value="<?php echo $s; ?>"><?php echo $s; ?></option>
           <?php } ?>
         </select>　年　
@@ -92,7 +92,7 @@
       <div class="form-input">
         <div class="input-title-2">性格・特徴</div>
       </div>
-      <p class="input-textarea-comment"> <textarea name="chara" wrap="soft"><?php echo $_SESSION['post_data']['chara']; ?></textarea></p>
+      <div class="input-textarea-comment align-r"> <textarea name="chara" wrap="soft"><?php echo $_SESSION['post_data']['chara']; ?></textarea></div>
     </div>
 
     <!-- 登録・キャンセルボタン -->

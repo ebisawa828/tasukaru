@@ -13,7 +13,6 @@
   <image src="./image/logo.png" width="20%">
   <!-- 助かる表示 -->
   <div class="form-tasukaru">助かる✋</div>
-  <div class="form-tasukaru font-50">＜検証環境＞</div>
   <!-- バージョンファイル表示 -->
   <div class="form-ver"><?php include("./lst/version.list"); ?></div>
 
@@ -30,9 +29,9 @@
     <br><br>
     <!-- 顧客番号検索 -->
     <div class="form-title">顧客番号　　　　　　　　　</div>
-    <form action="./view/view_karte.php" method="POST" target="_blank">
+    <form action="./view/view_karte.php" method="GET" target="_blank">
       <div class="form-input-top">
-        <div class="input-text-top"><input type="text" name="cust_id" autocomplete="off" style='ime-mode:disabled' required pattern='\d{5}' title='5けたの数字のみを入力'></div>
+        <div class="input-text-top"><input type="text" name="id" autocomplete="off" style='ime-mode:disabled' required pattern='\d{4}' title='4けたの数字のみを入力'></div>
         <div class="submit-base"><input type="submit" value="検索" ></div>
       </div>
     </form>

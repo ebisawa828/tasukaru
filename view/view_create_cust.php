@@ -40,7 +40,7 @@
       <!-- お客様コード(数字5文字) -->
       <div class="form-input">
         <div class="input-title">お客様コード(必須)</div>
-        <div class="input-text-custid"><input type="text" name="cust_id" autocomplete="off" style='ime-mode:disabled' required pattern='\d{5}' title="数字５桁" value="<?php echo $_SESSION['post_data']['cust_id']; ?>"> (数字５桁)</div>
+        <div class="input-text-custid"><input type="text" name="cust_id" autocomplete="off" style='ime-mode:disabled' required pattern='\d{4}' title="数字4桁" value="<?php echo $_SESSION['post_data']['cust_id']; ?>"> (数字４桁)</div>
       </div>
       <!-- ふりがな(13文字以内) -->
       <div class="form-input">
@@ -92,7 +92,7 @@
       <div class="form-input">
         <div class="input-title-2">備考</div>
       </div>
-      <p class="input-textarea-comment "> <textarea name="comment" wrap="soft"><?php echo $_SESSION['post_data']['comment']; ?></textarea></p>
+      <p class="input-textarea-comment align-r"> <textarea name="comment" wrap="soft"><?php echo $_SESSION['post_data']['comment']; ?></textarea></p>
       <!-- 暗号３つ -->
       <div class="form-input">
         <div class="input-title">暗号①</div>
@@ -178,8 +178,8 @@
               <?php } else { ?>
                 <option value="">-</option>
               <?php } ?>
-              <!-- 現在から15年前までをリスト表示 -->
-              <?php for($s=date('Y');$s>date('Y')-15;$s--) { ?>
+              <!-- 現在から25年前までをリスト表示 -->
+              <?php for($s=date('Y');$s>date('Y')-25;$s--) { ?>
                 <option value="<?php echo $s; ?>"><?php echo $s; ?></option>
               <?php } ?>
             </select>　年
@@ -205,7 +205,7 @@
           <div class="form-input">
             <div class="input-title-2">性格・特徴</div>
           </div>
-          <p class="input-textarea-comment"> <textarea name="chara[]" wrap="soft"><?php echo $_SESSION['post_data']['chara'][$i]; ?></textarea></p>
+          <div class="input-textarea-comment align-r"> <textarea name="chara[]" wrap="soft"><?php echo $_SESSION['post_data']['chara'][$i]; ?></textarea></div>
 
         </div>
       <?php } ?>

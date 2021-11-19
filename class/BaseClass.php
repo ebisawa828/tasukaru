@@ -288,19 +288,26 @@ abstract class BaseClass
   }
 
   //利用履歴一覧取得(日付指定)
-  public function Get_Cust_come_dayly_list($cust_id)
+  public function Get_Cust_come_dayly_list($cust_id,$t_day)
   {
     $user_list = array();
-    $params = array('cust_id' => $cust_id);
+    $params = array('cust_id' => $cust_id, 't_day' => $t_day);
     try{
         //$sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num, max(str_date) as last_date FROM %s
         //  inner join %s on %s.cust_id = %s.cust_id where %s.cust_id
         //  in ( select cust_id from %s where str_date = :t_day ) group by cust_id order by cust_id;'
         //  ,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table, self::Come_table, self::Come_table);
 
-        $sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num, max(str_date) as last_date FROM %s
+        //処理が遅いのでサブクエリ削除
+        //$sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num, max(str_date) as last_date FROM %s
+        //  inner join %s on %s.cust_id = %s.cust_id where %s.cust_id = :cust_id group by cust_id ;'
+        //  ,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table, self::Come_table);
+
+        //日付指定日より前回の利用日を取得に変更
+        $sql = sprintf('SELECT %s.cust_id as cust_id, name, count(*) as num,
+          (select max(str_date) from %s where cust_id = :cust_id and str_date < :t_day ) as last_date FROM %s
           inner join %s on %s.cust_id = %s.cust_id where %s.cust_id = :cust_id group by cust_id ;'
-          ,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table, self::Come_table);
+          ,self::Come_table,self::Come_table,self::Come_table, self::User_table, self::Come_table, self::User_table, self::Come_table);
 
       $user_list = $this->get_query($sql, $params);
       return $user_list;

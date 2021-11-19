@@ -5,7 +5,7 @@
   {
     public function main()
     {
-      //GETは、FullFreeから
+      //GETは、FullFreeから  顧客番号検索もGET(2021/11/13)
       if(true == isset($_GET['id'])){
         $cust_id=$_GET['id'];
       //POSTは検索画面から　電話番号検索
@@ -16,6 +16,8 @@
         //1件のみ
         if( count($this->user_id) == 1) {
           $cust_id = $this->user_id[0]['cust_id'];
+          //同一タブの抑止のため、GET形式で再度view_karteを呼び出す(2021/11/13)
+          header("Location: ../view/view_karte.php?id={$cust_id}");
         //検索 0件
         } elseif( count($this->user_id) == 0) {
           //カルテがない
@@ -27,9 +29,9 @@
           $msg = $this->Out_Msg(20);
           header("Location: ../view/error.php?msg={$msg}");
         }
-      //顧客番号検索
-      } elseif(true == isset($_POST['cust_id'])) {
-        $cust_id=$_POST['cust_id'];
+      //顧客番号検索  廃止(2021/11/13)
+      } elseif(true == isset($_GET['cust_id'])) {
+        $cust_id=$_GET['cust_id'];
       } else {
         $msg = "エラー";
         header("Location: ../view/error.php?msg={$msg}");

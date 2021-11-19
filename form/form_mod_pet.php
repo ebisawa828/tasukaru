@@ -35,8 +35,8 @@
               <?php } else { ?>
                 <option value="">-</option>
               <?php } ?>
-              <!-- 現在から15年前までをリスト表示 -->
-              <?php for($s=date('Y');$s>date('Y')-15;$s--) { ?>
+              <!-- 現在から25年前までをリスト表示 -->
+              <?php for($s=date('Y');$s>date('Y')-25;$s--) { ?>
                 <option value="<?php echo $s; ?>"><?php echo $s; ?></option>
               <?php } ?>
             </select>　年　
